@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Mis gastos</title>
+<meta name="theme-color" content="#f4f4f1" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#111110" media="(prefers-color-scheme: dark)">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="Gastos">
+<meta name="robots" content="noindex, nofollow">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icono-180.png">
+<link rel="icon" href="icono-192.png">
+<link rel="stylesheet" href="estilos.css">
+</head>
+<body>
+
+<!-- Pantalla de bloqueo -->
+<section id="bloqueo" class="bloqueo">
+  <div class="bloqueo-caja">
+    <img src="icono-192.png" alt="" class="bloqueo-logo">
+    <h1>Mis gastos</h1>
+    <p class="suave">Introduce la contraseña de la app</p>
+    <form id="form-pin" autocomplete="off">
+      <input id="pin" type="password" inputmode="text" autocomplete="current-password" placeholder="Contraseña" required>
+      <label class="check"><input id="recordar" type="checkbox" checked> Recordar en este iPhone</label>
+      <button type="submit" id="btn-entrar">Entrar</button>
+      <p id="error-pin" class="error" role="alert"></p>
+    </form>
+  </div>
+</section>
+
+<!-- App -->
+<main id="app" hidden>
+  <header class="cabecera">
+    <div class="cab-fila">
+      <h1 id="titulo">Resumen</h1>
+      <button id="btn-salir" class="btn-icono" aria-label="Bloquear">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path d="M7 11V8a5 5 0 0 1 10 0v3M5 11h14v10H5z" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round"/></svg>
+      </button>
+    </div>
+    <div class="selector-mes" id="selector-mes">
+      <button id="mes-ant" aria-label="Mes anterior">‹</button>
+      <span id="mes-nombre"></span>
+      <button id="mes-sig" aria-label="Mes siguiente">›</button>
+    </div>
+    <p class="actualizado" id="actualizado"></p>
+  </header>
+
+  <div class="contenido">
+    <section data-vista="resumen" class="vista"></section>
+    <section data-vista="graficas" class="vista" hidden></section>
+    <section data-vista="gastos" class="vista" hidden></section>
+    <section data-vista="bizum" class="vista" hidden></section>
+    <section data-vista="ingresos" class="vista" hidden></section>
+  </div>
+
+  <nav class="pestanas" aria-label="Secciones">
+    <button data-ir="resumen" class="activa"><svg viewBox="0 0 24 24"><path d="M4 13h6V4H4zM14 20h6v-9h-6zM4 20h6v-4H4zM14 4v4h6V4z"/></svg>Resumen</button>
+    <button data-ir="graficas"><svg viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg>Gráficas</button>
+    <button data-ir="gastos"><svg viewBox="0 0 24 24"><path d="M6 3h12v18l-3-2-3 2-3-2-3 2zM9 8h6M9 12h6"/></svg>Gastos</button>
+    <button data-ir="bizum"><svg viewBox="0 0 24 24"><path d="M4 8h13l-3-3M20 16H7l3 3"/></svg>Bizum</button>
+    <button data-ir="ingresos"><svg viewBox="0 0 24 24"><path d="M12 20V4M6 10l6-6 6 6"/></svg>Ingresos</button>
+  </nav>
+</main>
+
+<div id="tooltip" class="tooltip" hidden></div>
+<script src="app.js"></script>
+</body>
+</html>
