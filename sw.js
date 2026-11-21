@@ -1,6 +1,6 @@
 // Guarda la app para que abra sin conexión. Los datos (datos.enc) los gestiona app.js:
 // siempre intenta descargar los últimos y, si no hay red, usa la última copia.
-const CACHE = "gastos-v1";
+const CACHE = "rosie-v2";
 const APP = ["./", "index.html", "estilos.css", "app.js", "manifest.webmanifest", "icono-180.png", "icono-192.png", "icono-512.png"];
 self.addEventListener("install", (e) => { e.waitUntil(caches.open(CACHE).then((c) => c.addAll(APP))); self.skipWaiting(); });
 self.addEventListener("activate", (e) => {
