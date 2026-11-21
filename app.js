@@ -1,4 +1,4 @@
-/* Mis gastos: app de sólo lectura. Descarga datos.enc (cifrado en el PC), lo descifra con tu
+/* Roses Bank Registery: app de sólo lectura. Descarga datos.enc (cifrado en el PC), lo descifra con tu
    contraseña en el propio iPhone y enseña resúmenes y gráficas. No envía nada a ningún sitio. */
 "use strict";
 
